@@ -1,0 +1,1249 @@
+/* ===========================================================
+   HAPPY BIRTHDAY SALMA
+   STYLE.CSS
+   PART 1
+=========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    overflow:hidden;
+
+    background:#050816;
+
+    color:white;
+
+    height:100vh;
+
+}
+
+/* ========================================= */
+
+#intro{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    z-index:999;
+
+    background:
+    radial-gradient(circle at top,#2d006b,#09091f,#02020a);
+
+}
+
+/* ========================================= */
+
+.introTitle{
+
+    font-size:70px;
+
+    font-weight:800;
+
+    color:white;
+
+    text-shadow:
+
+    0 0 15px #fff,
+
+    0 0 30px #ff66cc,
+
+    0 0 60px #ff33aa;
+
+    animation:
+
+    glow 2s infinite alternate,
+
+    floatTitle 4s ease-in-out infinite;
+
+}
+
+/* ========================================= */
+
+.introText{
+
+    margin-top:20px;
+
+    color:#ddd;
+
+    font-size:22px;
+
+    letter-spacing:1px;
+
+    animation:fadeIn 2s;
+
+}
+
+/* ========================================= */
+
+#startBtn{
+
+    margin-top:60px;
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    padding:
+
+    18px
+
+    55px;
+
+    border-radius:60px;
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    #ff4da6,
+
+    #ff0077,
+
+    #ff8a00
+
+    );
+
+    box-shadow:
+
+    0 0 20px #ff3d8d,
+
+    0 0 50px #ff0077,
+
+    0 0 80px #ff66cc;
+
+    transition:.4s;
+
+    animation:
+
+    pulse 2s infinite;
+
+}
+
+#startBtn:hover{
+
+    transform:
+
+    scale(1.08);
+
+    box-shadow:
+
+    0 0 40px #fff,
+
+    0 0 80px #ff0077,
+
+    0 0 120px #ff4da6;
+
+}
+
+/* ========================================= */
+
+#celebration{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+/* ========================================= */
+
+#birthdayTitle{
+
+    font-size:80px;
+
+    font-weight:800;
+
+    letter-spacing:3px;
+
+    color:white;
+
+    text-shadow:
+
+    0 0 20px gold,
+
+    0 0 50px orange,
+
+    0 0 100px yellow;
+
+    animation:
+
+    floatTitle 4s infinite;
+
+}
+
+/* ========================================= */
+
+#name{
+
+    margin-top:20px;
+
+    font-size:72px;
+
+    color:#ff5ca8;
+
+    text-shadow:
+
+    0 0 20px white,
+
+    0 0 40px hotpink,
+
+    0 0 80px deeppink;
+
+}
+
+/* ========================================= */
+
+#typingMessage{
+
+    margin-top:40px;
+
+    width:min(900px,90%);
+
+    font-size:24px;
+
+    line-height:1.8;
+
+    color:white;
+
+    min-height:180px;
+
+}
+
+/* ========================================= */
+
+#buttons{
+
+    margin-top:50px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:18px;
+
+}
+
+/* ========================================= */
+
+#buttons button{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:
+
+    16px
+
+    30px;
+
+    border-radius:40px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:
+
+    rgba(255,255,255,.12);
+
+    backdrop-filter:blur(14px);
+
+    border:
+
+    1px solid
+
+    rgba(255,255,255,.25);
+
+    transition:.35s;
+
+}
+
+#buttons button:hover{
+
+    transform:
+
+    translateY(-8px)
+
+    scale(1.06);
+
+    background:
+
+    rgba(255,255,255,.22);
+
+}
+/* ===========================================================
+   STYLE.CSS
+   PART 2
+   Background - Stars - Aurora - Particles - Decorations
+=========================================================== */
+
+
+/* ===========================
+   Animated Background
+=========================== */
+
+body{
+
+    background:
+    linear-gradient(
+    135deg,
+    #04030d,
+    #12052a,
+    #25073f,
+    #050816);
+
+    background-size:400% 400%;
+
+    animation:
+    gradientMove 20s ease infinite;
+
+}
+
+
+/* ===========================
+   Aurora Layer
+=========================== */
+
+#aurora{
+
+    position:fixed;
+
+    inset:-20%;
+
+    pointer-events:none;
+
+    z-index:-2;
+
+    filter:blur(90px);
+
+    opacity:.65;
+
+    background:
+
+    radial-gradient(circle,#ff3cac 0%,transparent 35%),
+
+    radial-gradient(circle,#784ba0 0%,transparent 30%),
+
+    radial-gradient(circle,#2b86c5 0%,transparent 40%),
+
+    radial-gradient(circle,#00dbde 0%,transparent 35%);
+
+    animation:
+
+    auroraMove 18s linear infinite;
+
+}
+
+
+/* ===========================
+   Stars Layer
+=========================== */
+
+#stars{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-1;
+
+}
+
+
+/* Small Stars */
+
+#stars::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:2px;
+
+    height:2px;
+
+    background:white;
+
+    border-radius:50%;
+
+    box-shadow:
+
+    50px 80px white,
+    100px 180px white,
+    150px 60px white,
+    220px 250px white,
+    300px 100px white,
+    380px 260px white,
+    460px 70px white,
+    520px 180px white,
+    600px 290px white,
+    700px 120px white,
+    800px 60px white,
+    900px 240px white,
+    980px 180px white,
+    1080px 80px white,
+    1180px 280px white,
+    1280px 150px white,
+    1380px 60px white,
+    1480px 210px white,
+    1580px 100px white,
+    1700px 260px white;
+
+    animation:
+
+    twinkle 5s infinite;
+
+}
+
+
+/* Large Stars */
+
+#stars::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:4px;
+
+    height:4px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    box-shadow:
+
+    140px 120px #fff,
+
+    340px 420px #fff,
+
+    640px 210px #fff,
+
+    940px 520px #fff,
+
+    1240px 310px #fff,
+
+    1540px 150px #fff,
+
+    1740px 420px #fff;
+
+    animation:
+
+    sparkle 2.8s infinite;
+
+}
+
+
+/* ===========================
+   Particles
+=========================== */
+
+#particles{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+#particles::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+    radial-gradient(
+    rgba(255,255,255,.18) 1px,
+    transparent 1px);
+
+    background-size:90px 90px;
+
+    animation:
+
+    particlesMove 25s linear infinite;
+
+}
+
+
+/* ===========================
+   Overlay
+=========================== */
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle,
+    rgba(255,255,255,.05),
+    rgba(0,0,0,.35));
+
+    backdrop-filter:blur(2px);
+
+}
+
+
+/* ===========================
+   Cake
+=========================== */
+
+#cakeSection{
+
+    margin-top:45px;
+
+}
+
+#cake{
+
+    font-size:120px;
+
+    filter:
+
+    drop-shadow(0 0 25px gold);
+
+    animation:
+
+    cakeFloat 3.5s ease-in-out infinite;
+
+}
+
+
+/* ===========================
+   Blow Button
+=========================== */
+
+#blowBtn{
+
+    margin-top:25px;
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:
+
+    16px
+
+    34px;
+
+    border-radius:45px;
+
+    font-size:20px;
+
+    color:white;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #00c6ff,
+    #0072ff);
+
+    box-shadow:
+
+    0 0 20px #00c6ff;
+
+    transition:.35s;
+
+}
+
+#blowBtn:hover{
+
+    transform:
+
+    scale(1.08);
+
+}
+
+
+/* ===========================
+   Gift Box
+=========================== */
+
+#giftBox{
+
+    margin-top:50px;
+
+    font-size:120px;
+
+    cursor:pointer;
+
+    animation:
+
+    bounceGift 2s infinite;
+
+    transition:.4s;
+
+}
+
+#giftBox:hover{
+
+    transform:
+
+    rotate(12deg)
+
+    scale(1.15);
+
+}
+
+
+/* ===========================
+   Gift Message
+=========================== */
+
+#giftMessage{
+
+    display:none;
+
+    margin-top:35px;
+
+    width:min(850px,90%);
+
+    font-size:30px;
+
+    line-height:1.8;
+
+    color:#ffd4ea;
+
+    text-shadow:
+
+    0 0 15px hotpink;
+
+}
+
+
+/* ===========================
+   Floating Containers
+=========================== */
+
+#heartsContainer,
+#flowersContainer,
+#balloonsContainer,
+#confettiContainer,
+#fireworksContainer{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+}
+/* ===========================================================
+   STYLE.CSS
+   PART 3A
+   Animations
+=========================================================== */
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+@keyframes glow{
+    from{
+        text-shadow:
+            0 0 10px #fff,
+            0 0 20px #ff66cc,
+            0 0 40px #ff3399;
+    }
+
+    to{
+        text-shadow:
+            0 0 20px #fff,
+            0 0 40px #ff33aa,
+            0 0 80px #ff0077;
+    }
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.06);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes floatTitle{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+@keyframes auroraMove{
+
+    0%{
+        transform:rotate(0deg) scale(1);
+    }
+
+    50%{
+        transform:rotate(180deg) scale(1.2);
+    }
+
+    100%{
+        transform:rotate(360deg) scale(1);
+    }
+
+}
+
+@keyframes twinkle{
+
+    0%,100%{
+        opacity:.3;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+}
+
+@keyframes sparkle{
+
+    0%{
+        transform:scale(1);
+        opacity:.5;
+    }
+
+    50%{
+        transform:scale(1.8);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:.5;
+    }
+
+}
+
+@keyframes particlesMove{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-120px);
+    }
+
+}
+
+@keyframes cakeFloat{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes bounceGift{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    25%{
+        transform:translateY(-10px);
+    }
+
+    50%{
+        transform:translateY(0);
+    }
+
+    75%{
+        transform:translateY(-5px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+/* ===========================================================
+   STYLE.CSS
+   PART 3B
+   FINAL EFFECTS + RESPONSIVE
+=========================================================== */
+
+
+/* ===============================
+   Glass Effect
+================================ */
+
+.glass{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+
+    0 8px 40px rgba(0,0,0,.35);
+
+}
+
+
+/* ===============================
+   Generic Glow
+================================ */
+
+.glow{
+
+    box-shadow:
+
+    0 0 10px #fff,
+
+    0 0 20px #ff77c8,
+
+    0 0 40px #ff3ea5,
+
+    0 0 80px #ff0088;
+
+}
+
+
+/* ===============================
+   Floating Objects
+================================ */
+
+.float{
+
+    animation:
+
+    floatObject 5s ease-in-out infinite;
+
+}
+
+@keyframes floatObject{
+
+    0%{
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+
+    }
+
+    50%{
+
+        transform:
+        translateY(-18px)
+        rotate(3deg);
+
+    }
+
+    100%{
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+
+    }
+
+}
+
+
+/* ===============================
+   Neon Text
+================================ */
+
+.neon{
+
+    color:white;
+
+    text-shadow:
+
+    0 0 8px #ffffff,
+
+    0 0 20px #ff69b4,
+
+    0 0 40px deeppink,
+
+    0 0 80px hotpink;
+
+}
+
+
+/* ===============================
+   Scrollbar
+================================ */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#090816;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#ff4ca6;
+
+    border-radius:30px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#ff0080;
+
+}
+
+
+/* ===============================
+   Selection
+================================ */
+
+::selection{
+
+    background:#ff4ca6;
+
+    color:white;
+
+}
+
+
+/* ===============================
+   Buttons Animation
+================================ */
+
+button{
+
+    transition:
+
+    .35s ease;
+
+}
+
+button:active{
+
+    transform:
+
+    scale(.96);
+
+}
+
+
+/* ===============================
+   Celebration Fade
+================================ */
+
+.show{
+
+    display:flex !important;
+
+    animation:
+
+    pageFade 1.2s ease;
+
+}
+
+@keyframes pageFade{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.95);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/* ===============================
+   Responsive
+================================ */
+
+@media(max-width:1200px){
+
+#birthdayTitle{
+
+font-size:60px;
+
+}
+
+#name{
+
+font-size:55px;
+
+}
+
+#typingMessage{
+
+font-size:21px;
+
+}
+
+}
+
+
+@media(max-width:900px){
+
+.introTitle{
+
+font-size:52px;
+
+}
+
+.introText{
+
+font-size:18px;
+
+}
+
+#birthdayTitle{
+
+font-size:48px;
+
+}
+
+#name{
+
+font-size:42px;
+
+}
+
+#typingMessage{
+
+font-size:18px;
+
+width:92%;
+
+}
+
+#buttons{
+
+gap:12px;
+
+}
+
+#buttons button{
+
+font-size:16px;
+
+padding:14px 22px;
+
+}
+
+#cake{
+
+font-size:90px;
+
+}
+
+#giftBox{
+
+font-size:90px;
+
+}
+
+}
+
+
+@media(max-width:600px){
+
+.introTitle{
+
+font-size:38px;
+
+}
+
+.introText{
+
+font-size:15px;
+
+}
+
+#startBtn{
+
+font-size:18px;
+
+padding:16px 30px;
+
+}
+
+#birthdayTitle{
+
+font-size:34px;
+
+}
+
+#name{
+
+font-size:32px;
+
+}
+
+#typingMessage{
+
+font-size:16px;
+
+line-height:1.7;
+
+}
+
+#cake{
+
+font-size:72px;
+
+}
+
+#giftBox{
+
+font-size:72px;
+
+}
+
+#giftMessage{
+
+font-size:20px;
+
+width:92%;
+
+}
+
+#buttons{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+#buttons button{
+
+width:240px;
+
+}
+
+}
+
+
+/* ===============================
+   End Of CSS
+================================ */
