@@ -1,186 +1,179 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>حساب المنزل</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#F5F0E8;--card:#fff;--teal:#1A7A5E;--tl:#D4EDE7;--tm:#A8D5C8;--red:#C0392B;--rl:#FAE8E6;--gold:#B8860B;--gl:#FBF3DC;--tx:#1C1C1E;--ts:#6B6B6B;--bd:rgba(0,0,0,.08);--r:16px;--rs:10px;--sb:env(safe-area-inset-bottom,20px);--st:env(safe-area-inset-top,20px)}
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--tx);padding-top:var(--st);padding-bottom:calc(var(--sb) + 80px)}
-.hdr{background:var(--teal);padding:14px 18px 18px;position:sticky;top:0;z-index:100}
-.hdr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.hdr-title{font-size:17px;font-weight:700;color:#fff}
-.hdr-date{font-size:11px;color:rgba(255,255,255,.7)}
-.bal-box{background:rgba(255,255,255,.12);border-radius:var(--r);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
-.bal-lbl{font-size:11px;color:rgba(255,255,255,.75);margin-bottom:3px}
-.bal-amt{font-size:24px;font-weight:700;color:#fff;direction:ltr;text-align:right}
-.edit-btn{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:var(--rs);padding:8px 12px;font-family:'Cairo',sans-serif;font-size:12px;font-weight:600;cursor:pointer}
-.tabs{background:var(--card);display:flex;border-bottom:1px solid var(--bd);position:sticky;top:calc(var(--st) + 110px);z-index:99}
-.tab{flex:1;padding:13px;background:transparent;border:none;font-family:'Cairo',sans-serif;font-size:13px;font-weight:500;color:var(--ts);cursor:pointer;position:relative}
-.tab.on{color:var(--teal);font-weight:700}
-.tab.on::after{content:'';position:absolute;bottom:0;right:15%;left:15%;height:2.5px;background:var(--teal);border-radius:2px}
-.wrap{padding:14px}
-.panel{display:none}
-.panel.on{display:block}
-.card{background:var(--card);border-radius:var(--r);padding:14px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
-.ctitle{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:12px;display:flex;align-items:center;gap:7px}
-.cion{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px}
-.fg{margin-bottom:10px}
-.fg label{display:block;font-size:11px;font-weight:600;color:var(--ts);margin-bottom:5px}
-.fg input,.fg select{width:100%;padding:11px 12px;border:1.5px solid var(--bd);border-radius:var(--rs);font-family:'Cairo',sans-serif;font-size:14px;background:var(--bg);color:var(--tx);-webkit-appearance:none}
-.fg input:focus,.fg select:focus{outline:none;border-color:var(--teal);background:#fff}
-.fr{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.btn{width:100%;padding:12px;border:none;border-radius:var(--rs);font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px}
-.btn:active{opacity:.8;transform:scale(.97)}
-.btn-red{background:var(--red);color:#fff}
-.btn-teal{background:var(--teal);color:#fff}
-.psel{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
-.popt{padding:10px;border:2px solid var(--bd);border-radius:var(--rs);text-align:center;cursor:pointer;background:var(--bg)}
-.popt.sa{border-color:var(--teal);background:var(--tl)}
-.popt.ss{border-color:#993556;background:#FBEAF0}
-.pav{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;margin:0 auto 5px}
-.ava{background:var(--tm);color:#085041}
-.avs{background:#F4C0D1;color:#72243E}
-.pnm{font-size:13px;font-weight:700;color:var(--tx)}
-.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
-.sc{background:var(--card);border-radius:var(--rs);padding:12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.sl{font-size:10px;color:var(--ts);margin-bottom:5px;font-weight:500}
-.sv{font-size:16px;font-weight:700}
-.sv.t{color:var(--teal)}.sv.r{color:var(--red)}.sv.g{color:var(--gold)}
-.txl{display:flex;flex-direction:column;gap:7px}
-.txi{display:flex;align-items:center;justify-content:space-between;padding:10px;background:var(--bg);border-radius:var(--rs);gap:8px}
-.txlft{display:flex;align-items:center;gap:8px;flex:1;min-width:0}
-.txav{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
-.txb{flex:1;min-width:0}
-.txn{font-size:12px;font-weight:700;color:var(--tx);margin-bottom:1px}
-.txnt{font-size:10px;color:var(--ts);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.txr{text-align:left;flex-shrink:0}
-.txam{font-size:13px;font-weight:700;direction:ltr}
-.txtm{font-size:10px;color:var(--ts);margin-top:2px;direction:rtl}
-.del{background:transparent;border:none;font-size:15px;cursor:pointer;padding:3px 5px;border-radius:6px;flex-shrink:0}
-.dc{background:var(--bg);border-radius:var(--rs);padding:11px 13px;margin-bottom:8px;border-right:3px solid var(--teal)}
-.dd{font-size:11px;font-weight:700;color:var(--teal);margin-bottom:8px}
-.dr{display:flex;justify-content:space-between;font-size:12px;padding:3px 0}
-.dr span:first-child{color:var(--ts)}
-.dr span.r{color:var(--red);font-weight:700}
-.dr span.t{color:var(--teal);font-weight:700}
-.dr.tot{border-top:1px solid var(--bd);margin-top:5px;padding-top:7px;font-weight:700}
-.empty{text-align:center;padding:25px;color:var(--ts);font-size:13px}
-.moverlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;align-items:flex-end}
-.moverlay.open{display:flex}
-.modal{background:var(--card);width:100%;border-radius:20px 20px 0 0;padding:18px 18px calc(var(--sb) + 18px);animation:su .25s ease}
-@keyframes su{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.mtitle{font-size:15px;font-weight:700;margin-bottom:14px;text-align:center}
-.mclose{float:left;background:var(--bg);border:none;width:26px;height:26px;border-radius:50%;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ts)}
-.toast{position:fixed;top:calc(var(--st) + 120px);right:50%;transform:translateX(50%);background:#1C1C1E;color:#fff;padding:9px 18px;border-radius:20px;font-size:12px;font-weight:600;z-index:300;white-space:nowrap;opacity:0;transition:opacity .3s;pointer-events:none}
-.toast.show{opacity:1}
-</style>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Salma ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-<header class="hdr">
-<div class="hdr-top"><div class="hdr-title">🏠 حساب المنزل</div><div class="hdr-date" id="hdate"></div></div>
-<div class="bal-box">
-<div><div class="bal-lbl">المبلغ الكلي في المنزل</div><div class="bal-amt" id="totD">0 ج.م</div></div>
-<button class="edit-btn" onclick="openM()">تعديل ✏️</button>
-</div>
-</header>
-<div class="tabs">
-<button class="tab on" onclick="sw('wd',this)">💸 السحوبات</button>
-<button class="tab" onclick="sw('ex',this)">📊 المصاريف</button>
-</div>
-<div class="wrap">
-<div id="wd" class="panel on">
-<div class="card">
-<div class="ctitle"><div class="cion" style="background:var(--rl)">💸</div>سحب من المبلغ</div>
-<div style="margin-bottom:10px">
-<label style="display:block;font-size:11px;font-weight:600;color:var(--ts);margin-bottom:7px">اختار الشخص</label>
-<div class="psel">
-<div class="popt sa" id="oa" onclick="sp('a')"><div class="pav ava">أش</div><div class="pnm">أشرف</div></div>
-<div class="popt" id="os" onclick="sp('s')"><div class="pav avs">سل</div><div class="pnm">سلمى</div></div>
-</div>
-</div>
-<div class="fg"><label>المبلغ المسحوب (ج.م)</label><input type="number" id="wamt" placeholder="0" inputmode="decimal"></div>
-<div class="fg"><label>ملاحظة (اختياري)</label><input type="text" id="wnote" placeholder="مثال: سوق — خضار"></div>
-<button class="btn btn-red" onclick="doW()">💸 تأكيد السحب</button>
-</div>
-<div class="card">
-<div class="ctitle"><div class="cion" style="background:var(--tl)">🔄</div>إرجاع فلوس للدرج</div>
-<p style="font-size:11px;color:var(--ts);margin-bottom:10px">لو فضل معاك فلوس من اللي سحبته، حطها هنا وهتتضاف للمجموع</p>
-<div class="fr">
-<div class="fg"><label>المبلغ المرجَّع (ج.م)</label><input type="number" id="ramt" placeholder="0" inputmode="decimal"></div>
-<div class="fg"><label>ملاحظة</label><input type="text" id="rnote" placeholder="فضل من السوق"></div>
-</div>
-<button class="btn btn-teal" onclick="doR()">✅ إضافة للمجموع</button>
-</div>
-<div class="card">
-<div class="ctitle"><div class="cion" style="background:var(--gl)">📋</div>سجل العمليات</div>
-<div class="txl" id="txl"><div class="empty">📭<br>لا توجد عمليات بعد</div></div>
-</div>
-</div>
-<div id="ex" class="panel">
-<div class="sgrid">
-<div class="sc"><div class="sl">سحوبات اليوم</div><div class="sv r" id="todW">0 ج.م</div></div>
-<div class="sc"><div class="sl">المتبقي في المنزل</div><div class="sv t" id="rem">0 ج.م</div></div>
-<div class="sc"><div class="sl">إجمالي أشرف</div><div class="sv g" id="atot">0 ج.م</div></div>
-<div class="sc"><div class="sl">إجمالي سلمى</div><div class="sv g" id="stot">0 ج.م</div></div>
-</div>
-<div class="card">
-<div class="ctitle"><div class="cion" style="background:var(--tl)">📅</div>المصاريف اليومية</div>
-<div id="dl"><div class="empty">📭<br>لا توجد بيانات بعد</div></div>
-</div>
-</div>
-</div>
-<div class="moverlay" id="mm" onclick="cm(event)">
-<div class="modal">
-<button class="mclose" onclick="closeM()">✕</button>
-<div class="mtitle">💰 تحديث المبلغ الكلي</div>
-<div class="fg"><label>المبلغ الجديد في الدرج (ج.م)</label><input type="number" id="ni" placeholder="0" inputmode="decimal"></div>
-<div class="fg"><label>ملاحظة (اختياري)</label><input type="text" id="ni_note" placeholder="مثال: مرتب — راتب الشهر"></div>
-<button class="btn btn-teal" onclick="setT()">✅ تأكيد</button>
-</div>
-</div>
-<div class="toast" id="toast"></div>
-<script>
-var K='hb_v4',sp_='a';
-function ls(){try{var s=localStorage.getItem(K);if(s)return JSON.parse(s);}catch(e){}return{total:0,tx:[]};}
-function ss(){try{localStorage.setItem(K,JSON.stringify(st));}catch(e){}}
-var st=ls();
-function fmt(n){return(Math.round(n*100)/100).toLocaleString('ar-EG',{minimumFractionDigits:0,maximumFractionDigits:2})+' ج.م';}
-function tdk(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
-function fda(s){var d=new Date(s),dy=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],mn=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];return dy[d.getDay()]+' '+d.getDate()+' '+mn[d.getMonth()];}
-function ftm(s){var d=new Date(s),h=d.getHours(),m=d.getMinutes(),ap=h>=12?'م':'ص';h=h%12||12;return h+':'+(m<10?'0':'')+m+' '+ap;}
-function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2000);}
-function sp(p){sp_=p;document.getElementById('oa').className='popt'+(p=='a'?' sa':'');document.getElementById('os').className='popt'+(p=='s'?' ss':'');}
-function openM(){document.getElementById('ni').value='';document.getElementById('ni_note').value='';document.getElementById('mm').classList.add('open');setTimeout(function(){document.getElementById('ni').focus();},300);}
-function closeM(){document.getElementById('mm').classList.remove('open');}
-function cm(e){if(e.target===document.getElementById('mm'))closeM();}
-function setT(){var v=parseFloat(document.getElementById('ni').value);if(isNaN(v)||v<0){toast('❌ أدخل مبلغاً صحيحاً');return;}var n=document.getElementById('ni_note').value.trim();var diff=v-st.total;if(diff>0){st.tx.push({t:'add',p:'add',a:diff,n:n,d:new Date().toISOString()});}st.total=v;ss();closeM();render();toast(diff>0?'💰 تمت الإضافة للسجل':'✅ تم التحديث');}
-function doW(){var a=parseFloat(document.getElementById('wamt').value),n=document.getElementById('wnote').value.trim();if(isNaN(a)||a<=0){toast('❌ أدخل مبلغاً صحيحاً');return;}if(a>st.total){toast('❌ المبلغ أكبر من المتاح!');return;}st.total-=a;st.tx.push({t:'w',p:sp_,a:a,n:n,d:new Date().toISOString()});document.getElementById('wamt').value='';document.getElementById('wnote').value='';ss();render();toast('✅ تم السحب');}
-function doR(){var a=parseFloat(document.getElementById('ramt').value),n=document.getElementById('rnote').value.trim();if(isNaN(a)||a<=0){toast('❌ أدخل مبلغاً صحيحاً');return;}st.total+=a;st.tx.push({t:'r',p:'r',a:a,n:n,d:new Date().toISOString()});document.getElementById('ramt').value='';document.getElementById('rnote').value='';ss();render();toast('✅ تمت الإضافة');}
-function del(i){if(!confirm('حذف؟'))return;var tx=st.tx[i];if(tx.t=='w')st.total+=tx.a;else if(tx.t=='r'||tx.t=='add'){st.total-=tx.a;if(st.total<0)st.total=0;}st.tx.splice(i,1);ss();render();toast('🗑️ تم الحذف');}
-function sw(id,btn){document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on');});document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('on');});document.getElementById(id).classList.add('on');btn.classList.add('on');render();}
-function render(){
-document.getElementById('totD').textContent=fmt(st.total);
-var txd=document.getElementById('txl');
-if(!st.tx.length){txd.innerHTML='<div class="empty">📭<br>لا توجد عمليات بعد</div>';}
-else{var h='';st.tx.slice().reverse().forEach(function(tx,i){var ri=st.tx.length-1-i;var iw=tx.t=='w';var isadd=tx.t=='add';var cl=iw?'var(--red)':isadd?'#1a5fa8':'var(--teal)';var sg=iw?'- ':'+ ';var nm,avs,avt;if(tx.p=='a'){nm='أشرف';avs='background:var(--tm);color:#085041';avt='أش';}else if(tx.p=='s'){nm='سلمى';avs='background:#F4C0D1;color:#72243E';avt='سل';}else if(tx.t=='add'){nm='إضافة للمنزل';avs='background:#dbeafe;color:#1a5fa8';avt='💰';}else{nm='إرجاع للدرج';avs='background:var(--gl);color:var(--gold)';avt='🔄';}h+='<div class="txi"><div class="txlft"><div class="txav" style="'+avs+'">'+avt+'</div><div class="txb"><div class="txn">'+nm+'</div><div class="txnt">'+(tx.n||fda(tx.d))+'</div></div></div><div class="txr"><div class="txam" style="color:'+cl+'">'+sg+fmt(tx.a)+'</div><div class="txtm">'+ftm(tx.d)+'</div></div><button class="del" onclick="del('+ri+')">🗑️</button></div>';});txd.innerHTML=h;}
-var td=tdk(),tw=0,at=0,sv=0,days={};
-st.tx.forEach(function(tx){var dk=tx.d.substring(0,10);if(!days[dk])days[dk]={w:0,r:0,a:0,s:0};if(tx.t=='w'){days[dk].w+=tx.a;if(tx.p=='a'){days[dk].a+=tx.a;at+=tx.a;}if(tx.p=='s'){days[dk].s+=tx.a;sv+=tx.a;}}else days[dk].r+=tx.a;});
-if(days[td])tw=days[td].w-days[td].r;
-document.getElementById('todW').textContent=fmt(Math.max(0,tw));
-document.getElementById('rem').textContent=fmt(st.total);
-document.getElementById('atot').textContent=fmt(at);
-document.getElementById('stot').textContent=fmt(sv);
-var dk2=Object.keys(days).sort().reverse(),dl=document.getElementById('dl');
-if(!dk2.length){dl.innerHTML='<div class="empty">📭<br>لا توجد بيانات بعد</div>';}
-else{var dh='';dk2.forEach(function(dk){var d=days[dk];var net=d.w-d.r;var lb=dk==td?'📅 اليوم — '+fda(dk+'T12:00:00'):'📅 '+fda(dk+'T12:00:00');dh+='<div class="dc"><div class="dd">'+lb+'</div>';if(d.a>0)dh+='<div class="dr"><span>سحب أشرف</span><span class="r">'+fmt(d.a)+'</span></div>';if(d.s>0)dh+='<div class="dr"><span>سحب سلمى</span><span class="r">'+fmt(d.s)+'</span></div>';if(d.r>0)dh+='<div class="dr"><span>مرجَّع</span><span class="t">+ '+fmt(d.r)+'</span></div>';dh+='<div class="dr tot"><span>صافي المصروف</span><span class="'+(net>0?'r':'t')+'">'+fmt(net)+'</span></div></div>';});dl.innerHTML=dh;}
-}
-document.getElementById('hdate').textContent=fda(new Date().toISOString());
-render();
-</script>
+
+    <!-- ========================= -->
+    <!-- Background -->
+    <!-- ========================= -->
+
+    <div id="stars"></div>
+    <div id="particles"></div>
+    <div id="aurora"></div>
+
+    <!-- ========================= -->
+    <!-- Intro Screen -->
+    <!-- ========================= -->
+
+    <section id="intro">
+
+        <h1 class="introTitle">
+            A Special Surprise
+        </h1>
+
+        <p class="introText">
+            Someone has prepared something beautiful for you...
+        </p>
+
+        <button id="startBtn">
+
+            ✨ Start Surprise ✨
+
+        </button>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- Celebration -->
+    <!-- ========================= -->
+
+    <section id="celebration">
+
+        <div class="overlay"></div>
+
+        <h1 id="birthdayTitle">
+
+            Happy Birthday
+
+        </h1>
+
+        <h2 id="name">
+
+            Salma ❤️
+
+        </h2>
+
+
+
+        <div id="typingMessage"></div>
+
+
+
+        <div id="buttons">
+
+            <button id="flowersBtn">
+
+                🌹 Flowers
+
+            </button>
+
+            <button id="heartBtn">
+
+                ❤️ Love
+
+            </button>
+
+            <button id="balloonBtn">
+
+                🎈 Balloons
+
+            </button>
+
+            <button id="fireworksBtn">
+
+                🎆 Fireworks
+
+            </button>
+
+            <button id="giftBtn">
+
+                🎁 Open Gift
+
+            </button>
+
+        </div>
+
+
+
+        <!-- Cake -->
+
+        <div id="cakeSection">
+
+            <div id="cake">
+
+                🎂
+
+            </div>
+
+            <button id="blowBtn">
+
+                Blow The Candles 💨
+
+            </button>
+
+        </div>
+
+
+
+        <!-- Gift -->
+
+        <div id="giftBox">
+
+            🎁
+
+        </div>
+
+
+
+        <div id="giftMessage">
+
+            You deserve every happiness in the world ❤️
+        </div>
+
+    </section>
+
+
+
+    <!-- Floating Elements -->
+
+    <div id="heartsContainer"></div>
+
+    <div id="flowersContainer"></div>
+
+    <div id="balloonsContainer"></div>
+
+    <div id="confettiContainer"></div>
+
+    <div id="fireworksContainer"></div>
+
+
+
+    <!-- Music -->
+
+    <audio id="bgMusic" loop>
+
+        <source src="music.mp3" type="audio/mpeg">
+
+    </audio>
+
+
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
