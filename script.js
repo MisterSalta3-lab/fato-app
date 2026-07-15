@@ -146,8 +146,11 @@ createFloatingHearts();
 
 createConfettiBurst();
 
-createFireworks();
+for(let i = 0; i < 5; i++){
 
+    launchFirework();
+
+}
 
 
 }
@@ -1477,25 +1480,6 @@ createConfettiBurst();
 // Floating Love Messages
 // ===============================
 
-
-const loveWords=[
-
-
-"❤️ Love",
-
-"✨ Beautiful",
-
-"🌹 Amazing",
-
-"💖 Wonderful",
-
-"⭐ Special",
-
-"🎂 Happy Birthday"
-
-
-
-];
 
 
 
